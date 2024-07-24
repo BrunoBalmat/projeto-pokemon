@@ -1,0 +1,16 @@
+.principal{
+    background-image: url(../../../../../projetopokemon/public/Background.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ash{
+    width: 64px;
+    height: 64px;
+}
