@@ -27,7 +27,7 @@ const HomePage: React.FC<LandingPageProps> = ({ landing, setLanding }) => {
     return (
       <main className={`landing ${isFading ? 'hidden' : ''}`}>
         <div className='logoButton'>
-          <img src="Logo 1.png" alt="" />
+          <img src="Logo 1.png" alt="" />          
           <button onClick={handleStartClick}>START</button>
         </div>
       </main>
