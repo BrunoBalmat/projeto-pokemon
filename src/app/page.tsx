@@ -3,7 +3,6 @@ import './globals.css'
 import HomePage from './components/page'
 import SearchScreen from "./pages/home/page"
 import { useState } from 'react'
-import { log } from 'console'
 
 export default function Home() {
 
