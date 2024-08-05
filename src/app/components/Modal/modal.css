@@ -1,3 +1,13 @@
+.janela::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.janela {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+
 .container-modal{
     position: absolute;
     top: 0;
@@ -7,6 +17,7 @@
     z-index: 1000000;
     background-color: hsla(0, 0%, 0%, 0.35);
 }
+
 
 .janela {
     position: fixed;
@@ -18,7 +29,10 @@
     background: linear-gradient(90deg, #43E97B 0%, #38F9D7 100%);
     width: 360px;
     height: 520px;
-    z-index: 10000000;
+    z-index: 10000000;    
+    overflow: hidden;
+    overflow-y: auto;
+    position: relative;
 }
 
 .janela-interno{
@@ -71,6 +85,14 @@
     width: 100%;
 }
 
+.pokemonName{
+    display: 'flex';    
+    flex-direction: 'column'; 
+    justify-content: center;
+    align-items: 'center';
+    margin: "16px"
+}
+
 .pokemonType-container{
     display: flex;
     align-items: center;
@@ -87,4 +109,42 @@
     line-height: 16px;
     text-align: center;
     width: 100px;
+}
+
+.pokemonHabilities{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.pokemonHabilities h2{
+    font-size: 16px;
+    color:"#2E3A59";
+    font-weight: 700;
+}
+
+.pokemonHabilities h3{
+    font-size: 14px;
+    color:"#2E3A59";
+    font-weight: 600;
+}
+
+.postPokemon{
+    background-image: url(../../../../public/Pokéball.png);
+    background-position: center top;
+    background-size: 180%;
+    background-position-y: -11.8px;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+    border-radius: 200px;
+    background-color: #000000;
+    display: flex;
+    cursor: pointer;
+    position: sticky;
+    bottom: 40px;
+    left: calc(50% - 40px);
+    z-index: 10000001;
 }

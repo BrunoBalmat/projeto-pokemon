@@ -48,7 +48,7 @@ console.log(pokemon, 'pokemon');
 
   return (
     <div className='principal'>
-      <Slots/>
+      <Slots pokemon={pokemon}/>
       <div>
         {isSearching ? <Tooltip
           content={<img src="searchingTooltip.png" alt="" />}

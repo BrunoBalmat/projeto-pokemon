@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./modal.css";
+import axios from "axios";
 
 export default function Modal({ pokemon, setPokemon }) {
     const [type0, setType0] = useState("");
@@ -64,6 +65,12 @@ export default function Modal({ pokemon, setPokemon }) {
         }
     };
 
+    const PostPokemon = () => {
+        axios.post('https://projetopokemon-9caed-default-rtdb.firebaseio.com/Pokemon.json', 
+            pokemon={pokemon}),
+            setPokemon('')
+    }
+    
     if (pokemon) {
         return (
             <div className="container-modal">
@@ -74,29 +81,45 @@ export default function Modal({ pokemon, setPokemon }) {
                             <div className="modal-filho">
                                 <img src={pokemon.sprites.front_default} alt={pokemon.name} />
                             </div>
-                            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: "16px" }}>
+                            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: "16px", fontSize: "18px", fontWeight:"700", color:"#2E3A59"}}>
+
                                 {pokemon.name.toUpperCase()}
+
                                 <div style={{ display: 'flex', gap: '40px', alignItems: 'center' }}>
+
                                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+
                                         <h2>HP</h2> {pokemon?.stats[0].base_stat}/{pokemon?.stats[0].base_stat}
+
                                     </div>
+
                                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+
                                         <h2>ALTURA</h2> {convertUnit(pokemon.height)} m
+
                                     </div>
+
                                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+
                                         <h2>PESO</h2> {convertUnit(pokemon.weight)} kg
+
                                     </div>
                                 </div>
                                 <div>
                                     <h2>TIPO</h2>
                                 </div>
                                 <div className="pokemonType-container">
-
                                     <div className="pokemonType" style={{ backgroundColor: getColorByType(type0), height:'32px', borderRadius: '42px', color: 'white' }}>{type0}</div>
-
                                     {type1 && <div className="pokemonType" style={{ backgroundColor: getColorByType(type1), height:'32px', borderRadius: '42px', color: 'white' }}>{type1}</div>}
-
                                 </div>
+                                <div className="pokemonHabilities">
+                                    <h2>HABILIDADES</h2>
+                                    <h3>
+                                        {pokemon?.abilities[0]?.ability.name}, {pokemon?.abilities[1]?.ability.name} {pokemon?.abilities[2]?.ability.name}
+                                    </h3>
+                                </div>
+                                <div className="postPokemon" onClick={()=> PostPokemon()}>
+                                </div>                                                              
                             </div>
                         </div>
                     </div>
