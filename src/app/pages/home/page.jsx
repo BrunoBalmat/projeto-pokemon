@@ -42,10 +42,6 @@ export default function SearchScreen() {
     }
 }, [numeroSorteado]);
 
-
-console.log(pokemon, 'pokemon');
-
-
   return (
     <div className='principal'>
       <Slots pokemon={pokemon}/>
